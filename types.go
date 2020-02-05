@@ -38,7 +38,7 @@ type BaseMsg struct {
 	Id         string     `json:"transaction"`
 	Session    uint64     `json:"session_id"`
 	Handle     uint64     `json:"sender"`
-	Plugindata Plugindata `json:"plugindata"`
+	Plugindata PluginData `json:"plugindata"`
 }
 
 type ErrorMsg struct {
