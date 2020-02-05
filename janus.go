@@ -158,7 +158,7 @@ func (gateway *Gateway) recv() {
 		}
 
 		// Pass message on from here
-		if base.Id == "" {
+		if base.Plugindata.Plugin != "" {
 			// Is this a Handle event?
 			if base.Handle == 0 {
 				// Error()
