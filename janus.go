@@ -182,10 +182,13 @@ func (gateway *Gateway) recv() {
 				}
 
 				// Pass msg
+				fmt.Println("JANUS: sending to handle" + fmt.Sprintf("%d", base.Handle))
 				go passMsg(handle.Events, msg)
+				fmt.Println("JANUS: sent to handle" + fmt.Sprintf("%d", base.Handle))
 			}
 		} else {
 			id, _ := strconv.ParseUint(base.Id, 10, 64)
+			fmt.Println("JANUS: sending to transaction" + fmt.Sprintf("%d", id))
 			// Lookup Transaction
 			gateway.Lock()
 			transaction := gateway.transactions[id]
@@ -196,6 +199,8 @@ func (gateway *Gateway) recv() {
 
 			// Pass msg
 			go passMsg(transaction, msg)
+			fmt.Println("JANUS: sent to transaction" + fmt.Sprintf("%d", id))
+
 		}
 	}
 }
